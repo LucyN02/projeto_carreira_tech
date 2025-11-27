@@ -12,7 +12,7 @@
 
     <!-- CSS -->
 
-     <link rel="stylesheet" href="./styles/gemini.css">
+     <link rel="stylesheet" href="{{ url_for('static', filename='styles/gemini.css') }}">
 </head>
 
 <body>
@@ -33,12 +33,16 @@
 
                 <!-- Formulário que envia via POST -->
                 <form method="POST">
-                    <textarea
-                        class="form-control mb-3"
-                        name="pergunta"
-                        rows="4"
-                        placeholder="Digite sua pergunta aqui..."
-                        required></textarea>
+                    <div class="mb-3">
+                        <label for="pergunta" class="form-label">Sua pergunta</label>
+                        <textarea
+                            id="pergunta"
+                            name="pergunta"
+                            class="form-control"
+                            rows="4"
+                            placeholder="Digite sua pergunta aqui..."
+                            required></textarea>
+                    </div>
 
                     <button class="btn btn-primary w-100 fw-bold">
                         Enviar Pergunta
