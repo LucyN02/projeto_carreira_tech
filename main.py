@@ -1,16 +1,11 @@
-# This is a sample Python script.
+@app.route("/gemini", methods=["GET", "POST"])
+def gemini_page():
+    resposta = None
 
-# Press Ctrl+F5 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    if request.method == "POST":
+        pergunta = request.form["pergunta"]
 
+        modelo = genai.GenerativeModel("gemini-1.5-flash")
+        resposta = modelo.generate_content(pergunta).text
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press F9 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    return render_template("gemini.html", resposta=resposta)
