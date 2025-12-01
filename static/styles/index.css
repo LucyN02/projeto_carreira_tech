@@ -28,6 +28,11 @@ footer {
     margin-top: 40px;
 }
 
+.logo {
+    width: 100px;
+    height: 100px;
+}
+
 .team-photo {
     width: 150px;
     height: 150px;
